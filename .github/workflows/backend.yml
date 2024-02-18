@@ -4,9 +4,8 @@ on:
   push:
     branches:
       - main
-　schedule:
-　  - cron: '0 12 * * *'
-　  #日本時間で毎晩21時
+  schedule:
+    - cron: '0 12 * * *' # UTC時間で毎日12時、日本時間で21時（日本がUTC+9の場合）
 
 defaults:
   run:
