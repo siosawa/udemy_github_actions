@@ -1,0 +1,35 @@
+name: backend
+# ワークフローの名前
+on:
+  push:
+    branches:
+      - main
+
+defaults:
+  run:
+    working-directory: backend
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        # GitHubでよく実行されるアクションであるcheckoutのバージョン3を選択している。
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          
+      - run: npm ci
+      - run: npm run test -- --coverage
+      - run: npm run build
+      
+      - uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: backend/coverage/**
+          retention-days: 5
+      - uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: backend/dist/index.js
+          retention-days: 5
