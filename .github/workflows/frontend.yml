@@ -15,12 +15,11 @@ permissions:
 
 jobs:
   deploy:
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@
+      - uses: actions/checkout@3
       
-        uses: aws-actions/configure-aws-credentials@v3
+      - uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: arn:aws:iam::504252798833:role/udemy_github_actions_frontend_deployment_role
           aws-region: ap-northeast-1
