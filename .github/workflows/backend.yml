@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: '0 12 * * *' # UTC時間で毎日12時、日本時間で21時（日本がUTC+9の場合）
+    paths:
+      - 'frontend/**'
+      - '.github/**'      
 
 defaults:
   run:
