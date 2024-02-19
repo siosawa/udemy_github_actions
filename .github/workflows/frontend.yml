@@ -17,8 +17,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: aws-actions/configure-aws-credentials@v1    
+      - uses: actions/checkout@v3
+      - uses: aws-actions/configure-aws-credentials@v1   
         with:
           role-to-assume: arn:aws:iam::504252798833:role/udemy-github-actions-frontend-deployment-role
           aws-region: ap-northeast-1
